@@ -1,1 +1,0 @@
-# CTF_Teamrocket.github.io
