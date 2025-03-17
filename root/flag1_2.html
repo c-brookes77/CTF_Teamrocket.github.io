@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flag 1 - Option 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .flag-content {
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .flag-content h2 {
+            margin: 0;
+        }
+        .input-container {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .submit-btn {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .back-link {
+            text-decoration: none;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .back-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+
+<header>
+    <h1>Flag 1 - Option 2</h1>
+</header>
+
+
+<div class="flag-content">
+    <h2>Find your 1st launch code</h2>
+    <div class="input-container">
+        <input type="text" id="flag1-input" placeholder="Enter launch code">
+        <button class="submit-btn" onclick="submitFlag1Code()">Submit</button>
+    </div>
+    <a href="index.html" class="back-link">Go Back to Home</a>
+</div>
+
+
+<script>
+    function submitFlag1Code() {
+        let inputCode = document.getElementById("flag1-input").value;
+        alert("You entered: " + inputCode);
+        // You can also handle the code here (e.g., compare it with the correct code)
+    }
+</script>
+
+
+</body>
+</html>
