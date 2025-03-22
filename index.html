@@ -4,55 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Rocket CTF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet"> <!-- Orbitron Font -->
     <style>
         /* Ensures the body takes up full height and centers content */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Orbitron', sans-serif; /* Use Orbitron font */
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background: url('images/space.jpg') no-repeat center center fixed;
+            background-size: cover;
             display: grid;
-            place-items: center; /* Centers the content both horizontally and vertically */
-            min-height: 100vh; /* Takes up full height of the viewport */
+            place-items: center;
+            min-height: 100vh;
         }
 
-
         header {
-            background-color: #333;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px 80px; /* Move text further up by increasing bottom padding */
             width: 100%;
         }
 
-
         header h1 {
             margin: 0;
+            font-size: 4rem; /* Larger text size for the header */
         }
 
-
         header p {
-            font-size: 18px;
+            font-size: 24px;
             margin-top: 10px;
             color: #ddd;
         }
 
-
-        /* Center the image properly */
-        .image-container {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;  /* Adds some space above and below the image */
+        /* Spaceship image styling */
+        .spaceship {
+            position: fixed; /* Stays in place when scrolling */
+            left: 100px; /* Moved further right */
+            top: 50%; /* Centers vertically */
+            transform: translateY(-50%) rotate(25deg); /* Increased rotation */
+            width: 150px; /* Adjust size */
+            height: auto;
         }
-
-
-        .rocket-img {
-            display: block;  /* Makes the image a block-level element */
-            margin: 0 auto;  /* Ensures image is centered */
-            max-width: 80%;  /* Adjust the image size */
-            height: auto;  /* Maintains aspect ratio */
-        }
-
 
         .flags-container {
             display: flex;
@@ -61,9 +53,8 @@
             margin-top: 30px;
         }
 
-
         section {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
@@ -72,20 +63,16 @@
             transition: transform 0.3s ease;
         }
 
-
         section:hover {
             transform: scale(1.05);
         }
-
 
         section h2 {
             margin: 10px 0;
         }
 
-
         .flag-link {
             text-decoration: none;
-            color: #333;
             font-size: 16px;
             padding: 10px;
             background-color: #007BFF;
@@ -95,11 +82,9 @@
             margin-top: 10px;
         }
 
-
         .flag-link:hover {
             background-color: #0056b3;
         }
-
 
         .inner-flags {
             display: flex;
@@ -107,7 +92,6 @@
             gap: 10px;
             margin-top: 20px;
         }
-
 
         .inner-flag {
             background-color: #f1f1f1;
@@ -121,18 +105,13 @@
 </head>
 <body>
 
-
 <header>
     <h1>Team Rocket CTF</h1>
     <p>Find all the launch codes</p>
 </header>
 
-
-<!-- Rocket Image -->
-<div class="image-container">
-    <img src="images/rocket.jpg.jpg" alt="Rocket Image" class="rocket-img">
-</div>
-
+<!-- Spaceship Image (Moved Further Right) -->
+<img src="images/rocketship2.png" alt="Spaceship" class="spaceship">
 
 <!-- Flags Container -->
 <div class="flags-container">
@@ -148,7 +127,6 @@
         </div>
     </section>
 
-
     <section>
         <h2>Flag Two</h2>
         <div class="inner-flags">
@@ -160,7 +138,6 @@
             </div>
         </div>
     </section>
-
 
     <section>
         <h2>Flag Three</h2>
@@ -174,7 +151,6 @@
         </div>
     </section>
 </div>
-
 
 </body>
 </html>
