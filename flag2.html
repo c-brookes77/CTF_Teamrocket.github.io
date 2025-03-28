@@ -7,7 +7,7 @@
     <style>
         @font-face {
             font-family: 'HackerFont';
-            src: url('fonts/AnonymousPro-Regular.ttf'); /* Hacker-style font */
+            src: url('fonts/AnonymousPro-Regular.ttf'); 
         }
 
         body {
@@ -15,7 +15,7 @@
             background-color: black;
             margin: 0;
             padding: 0;
-            color: #00ff00; /* Hacker green */
+            color: #00ff00; 
             overflow: hidden;
             height: 100vh;
             display: flex;
@@ -24,10 +24,10 @@
             position: relative;
         }
 
-        /* Background image container */
+        
         .background-container {
             background: url('images/paperondesk.jfif') no-repeat center center;
-            background-size: auto 100vh; /* Full height, black bars on sides */
+            background-size: auto 100vh; 
             width: 100%;
             height: 100vh;
             position: absolute;
@@ -35,7 +35,7 @@
             left: 0;
         }
 
-        /* Typing hint text (restricted to leftmost 9%) */
+        
         .hint-text {
             position: absolute;
             top: 20px;
@@ -62,17 +62,17 @@
             50% { opacity: 0; }
         }
 
-        /* Centered Image (10% larger and no border) */
+        
         .center-image {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            max-width: 44%; /* Increased size by 10% */
+            max-width: 44%; 
             height: auto;
         }
 
-        /* Launch Code Input Box (restricted to rightmost 9%) */
+       
         .flag-content {
             position: absolute;
             top: 25%;
@@ -159,16 +159,16 @@
 </head>
 <body>
 
-<!-- Background Image Container -->
+
 <div class="background-container"></div>
 
-<!-- Typing Text Animation (Leftmost 9%) -->
+
 <p class="hint-text" id="typing-text"></p>
 
-<!-- Centered Image -->
+
 <img src="images/stegonagraphied.png" alt="Hidden Rocket Image" class="center-image">
 
-<!-- Launch Code Input on the Rightmost 9% -->
+
 <div class="flag-content">
     <h2>Enter Second Launch Code</h2>
     <div class="input-container">
@@ -185,7 +185,11 @@
         let inputCode = document.getElementById("flag2-input").value;
         let errorMessage = document.getElementById("error-message");
 
-        if (inputCode === "1902372348") {
+        
+        let encodedCorrectCode = "MTkwMjM3MjM0OA=="; 
+        let correctCode = atob(encodedCorrectCode); 
+
+        if (inputCode === correctCode) {
             alert("Congratulations! You have found the 2nd launch code!");
             window.location.href = "flag2_2.html";
         } else {
