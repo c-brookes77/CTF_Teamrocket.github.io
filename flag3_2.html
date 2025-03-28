@@ -4,93 +4,188 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flag 3 - Option 2</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-        }
-        header h1 {
-            margin: 0;
-        }
-        .flag-content {
-            padding: 20px;
-            background-color: #fff;
-            margin: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .flag-content h2 {
-            margin: 0;
-        }
-        .input-container {
-            margin-top: 20px;
-        }
-        input[type="text"] {
-            padding: 10px;
-            width: 200px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .submit-btn {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border-radius: 5px;
-            margin-top: 10px;
-            cursor: pointer;
-            border: none;
-        }
-        .submit-btn:hover {
-            background-color: #0056b3;
-        }
-        .back-link {
-            text-decoration: none;
-            padding: 10px;
-            background-color: #007BFF;
-            color: white;
-            border-radius: 5px;
-            margin-top: 10px;
-            display: inline-block;
-        }
-        .back-link:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-
-
-<header>
-    <h1>Flag 3 - Option 2</h1>
-</header>
-
-
-<div class="flag-content">
-    <h2>Find your 3rd launch code</h2>
-    <div class="input-container">
-        <input type="text" id="flag3-input" placeholder="Enter launch code">
-        <button class="submit-btn" onclick="submitFlag3Code()">Submit</button>
+    
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flag 3 - Option 2</title>
+        <style>
+            @font-face {
+                font-family: 'HackerFont';
+                src: url('fonts/AnonymousPro-Regular.ttf'); /* Use a hacker-style font */
+            }
+    
+            body {
+                font-family: Arial, sans-serif;
+                background: url('images/space_clipboard.jpg') no-repeat center center fixed;
+                background-size: contain; /* Scale without stretching */
+                background-color: #000; /* Fallback color */
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                min-height: 100vh; /* Ensure it covers full height */
+                color: #fff;
+                overflow: hidden; /* Prevent unwanted scrolling */
+            }
+    
+            /* Hacking-style text */
+            .hint-text {
+                position: absolute;
+                top: 20px;
+                left: 5px; /* Pushed further left */
+                width: 9%; /* Now at 9% width */
+                font-family: 'HackerFont', monospace;
+                color: #00ff00; /* Green text */
+                font-size: 16px; /* Slightly smaller */
+                white-space: pre-line; /* Preserve line breaks */
+                text-align: left;
+                padding: 5px;
+                background: rgba(0, 0, 0, 0.6); /* Dark background for readability */
+                border-radius: 5px;
+                border: 1px solid #00ff00;
+                overflow: hidden;
+                min-height: 40px;
+            }
+    
+            /* Typing effect */
+            .typing::after {
+                content: "|";
+                display: inline-block;
+                animation: blink 0.7s infinite;
+            }
+    
+            @keyframes blink {
+                50% { opacity: 0; }
+            }
+    
+            /* Launch code input section (Moved to the right) */
+            .flag-content {
+                position: absolute;
+                top: 20%;
+                right: 5px; /* Positioned on the right */
+                width: 9%; /* Now at 9% width */
+                padding: 10px;
+                background-color: rgba(0, 0, 0, 0.8); /* Dark hacker background */
+                border: 1px solid #00ff00;
+                border-radius: 5px;
+                text-align: center;
+                font-family: 'HackerFont', monospace;
+                color: #00ff00;
+            }
+    
+            .flag-content h2 {
+                font-size: 16px;
+                color: #00ff00;
+                margin-bottom: 10px;
+            }
+    
+            .input-container {
+                margin-top: 10px;
+            }
+    
+            input[type="text"] {
+                padding: 8px;
+                width: 100%;
+                border-radius: 5px;
+                border: 1px solid #00ff00;
+                background: rgba(0, 0, 0, 0.7);
+                color: #00ff00;
+                font-family: 'HackerFont', monospace;
+                text-align: center;
+            }
+    
+            .submit-btn {
+                padding: 5px;
+                width: 100%;
+                background-color: #00ff00;
+                color: #000;
+                font-family: 'HackerFont', monospace;
+                border: none;
+                border-radius: 5px;
+                margin-top: 10px;
+                cursor: pointer;
+            }
+    
+            .submit-btn:hover {
+                background-color: #00cc00;
+            }
+    
+            .back-link {
+                text-decoration: none;
+                padding: 5px;
+                background-color: #00ff00;
+                color: #000;
+                border-radius: 5px;
+                margin-top: 10px;
+                display: inline-block;
+                font-size: 14px;
+            }
+    
+            .back-link:hover {
+                background-color: #00cc00;
+            }
+    
+            .error-message {
+                color: red;
+                font-size: 12px;
+                margin-top: 5px;
+            }
+        </style>
+    </head>
+    <body>
+    
+    <!-- Hacking-style animated text -->
+    <p class="hint-text" id="typing-text"></p>
+    
+    <!-- Right-side input box for launch code -->
+    <div class="flag-content">
+        <h2>Enter Launch Code</h2>
+        <div class="input-container">
+            <input type="text" id="flag1-input" placeholder="Enter code">
+            <button class="submit-btn" onclick="submitFlag1Code()">Submit</button>
+        </div>
+        <p class="error-message" id="error-message" style="display: none;">Incorrect code!</p>
+        <a href="index.html" class="back-link">Go Back</a>
     </div>
-    <a href="index.html" class="back-link">Go Back to Home</a>
-</div>
-
-
-<script>
-    function submitFlag3Code() {
-        let inputCode = document.getElementById("flag3-input").value;
-        alert("You entered: " + inputCode);
-        // You can also handle the code here (e.g., compare it with the correct code)
-    }
-</script>
-
-
-</body>
-</html>
+    
+    <script>
+        function submitFlag1Code() {
+            let inputCode = document.getElementById("flag1-input").value;
+            let correctCode = "8139153270343";
+            let errorMessage = document.getElementById("error-message");
+    
+            // Check if the entered code matches the correct one
+            if (inputCode === correctCode) {
+                alert("Correct! You've found the launch code.");
+                // You can add further actions here (e.g., redirect to the next flag)
+            } else {
+                // Show an error message if the code is incorrect
+                errorMessage.style.display = "block";
+            }
+        }
+    
+        // Typing effect function
+        function typeText(element, text, speed) {
+            let i = 0;
+            function typing() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typing, speed);
+                }
+            }
+            typing();
+        }
+    
+        // Start typing animation
+        document.addEventListener("DOMContentLoaded", function() {
+            let hintText = document.getElementById("typing-text");
+            let text = "While snooping around the facilities terminals you find a clipboard titled security concerns.\nAt the top you note what appears to be a list of user names Alyssa_G Dave_L and Linda_J.\nUnfortunately there does not appear to be a list of matching security keys, maybe one of these users uses a common password? .";
+            typeText(hintText, text, 50); // Adjust speed as needed
+        });
+    </script>
+    
+    </body>
+    </html>
+    
