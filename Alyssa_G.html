@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Alyssa_G </title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00; /* Hacker green */
+      font-family: monospace;
+      margin: 20px;
+      text-align: center;
+    }
+
+    #flag-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10; /* Ensure it's on top */
+      display: none; /* Hidden by default */
+      background-color: rgba(0, 0, 0, 0.8); /* Optional: semi-transparent black background for the container */
+      padding: 20px;
+      border: 1px solid #00ff00; /* Optional: border around the flag */
+      border-radius: 5px; /* Optional: rounded corners */
+    }
+
+    #flag-text {
+      white-space: pre-wrap; /* Preserve whitespace and line breaks */
+      font-size: 1.2em;
+    }
+      /* Hacking-style text */
+      .hint-text {
+            position: absolute;
+            top: 20px;
+            left: 5px; /* Pushed further left */
+            width: 9%; /* Now at 9% width */
+            font-family: 'HackerFont', monospace;
+            color: #00ff00; /* Green text */
+            font-size: 16px; /* Slightly smaller */
+            white-space: pre-line; /* Preserve line breaks */
+            text-align: left;
+            padding: 5px;
+            background: rgba(0, 0, 0, 0.6); /* Dark background for readability */
+            border-radius: 5px;
+            border: 1px solid #00ff00;
+            overflow: hidden;
+            min-height: 40px;
+        }
+        #warning-message {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+    <p class="hint-text" id="typing-text"></p>
+  <h1>Welcome Alyssa! Please Enter password</h1>
+  <input type="text" id="secretInput" size="30" onkeyup="checkPhrase()">
+  <p id="warning-message" style="display: none;">Incorrect password. Try again.</p>
+
+  <div id="flag-container">
+    <pre id="flag-text"></pre>
+  </div>
+
+  <script>
+    const secretPhrase = "JaG$s-Tz9e^6";
+    const inputField = document.getElementById("secretInput");
+    const flagContainer = document.getElementById("flag-container");
+    const flagTextElement = document.getElementById("flag-text");
+    const warningMessage = document.getElementById("warning-message");
+    // Replace this with the actual flag you want to display
+    const flagContent = `
+   ODEzOTE1MzI3MDM0Mw==
+    `;
+
+    function checkPhrase() {
+      if (inputField.value === secretPhrase) {
+        showFlag();
+        hideWarning();
+      } else if (inputField.value.length > 0) {
+        showWarning();
+        hideFlag();
+      } else {
+        hideWarning();
+        hideFlag();
+      }
+    }
+
+    function showFlag() {
+      flagTextElement.textContent = flagContent;
+      flagContainer.style.display = "block";
+    }
+
+    function hideFlag() {
+      flagContainer.style.display = "none";
+    }
+
+    function showWarning() {
+      warningMessage.style.display = "block";
+    }
+
+    function hideWarning() {
+      warningMessage.style.display = "none";
+    }
+  </script>
+<script>
+    // Typing effect function
+    function typeText(element, text, speed) {
+       let i = 0;
+       function typing() {
+           if (i < text.length) {
+               element.innerHTML += text.charAt(i);
+               i++;
+               setTimeout(typing, speed);
+           }
+       }
+       typing();
+   }
+
+   // Start typing animation
+   document.addEventListener("DOMContentLoaded", function() {
+       let hintText = document.getElementById("typing-text");
+       let text = "Hopefully this user uses a common password .\nMaybe I should consult a list.\ ";
+       typeText(hintText, text, 50); // Adjust speed as needed
+   });
+  
+
+</script>
+</body>
+</html>
