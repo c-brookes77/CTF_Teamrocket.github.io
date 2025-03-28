@@ -7,42 +7,42 @@
     <style>
         @font-face {
             font-family: 'HackerFont';
-            src: url('fonts/AnonymousPro-Regular.ttf'); /* Use a hacker-style font */
+            src: url('fonts/AnonymousPro-Regular.ttf'); 
         }
 
         body {
             font-family: Arial, sans-serif;
             background: url('images/trashed_room.jfif') no-repeat center center fixed;
-            background-size: contain; /* Scale without stretching */
-            background-color: #000; /* Fallback color */
+            background-size: contain; 
+            background-color: #000; 
             margin: 0;
             padding: 0;
             text-align: center;
-            min-height: 100vh; /* Ensure it covers full height */
+            min-height: 100vh; 
             color: #fff;
-            overflow: hidden; /* Prevent unwanted scrolling */
+            overflow: hidden; 
         }
 
-        /* Hacking-style text */
+        
         .hint-text {
             position: absolute;
             top: 20px;
-            left: 5px; /* Pushed further left */
-            width: 9%; /* Now at 9% width */
+            left: 5px;
+            width: 9%;
             font-family: 'HackerFont', monospace;
-            color: #00ff00; /* Green text */
-            font-size: 16px; /* Slightly smaller */
-            white-space: pre-line; /* Preserve line breaks */
+            color: #00ff00;
+            font-size: 16px;
+            white-space: pre-line;
             text-align: left;
             padding: 5px;
-            background: rgba(0, 0, 0, 0.6); /* Dark background for readability */
+            background: rgba(0, 0, 0, 0.6);
             border-radius: 5px;
             border: 1px solid #00ff00;
             overflow: hidden;
             min-height: 40px;
         }
 
-        /* Typing effect */
+        
         .typing::after {
             content: "|";
             display: inline-block;
@@ -53,14 +53,14 @@
             50% { opacity: 0; }
         }
 
-        /* Launch code input section (Moved to the right) */
+        
         .flag-content {
             position: absolute;
             top: 20%;
-            right: 5px; /* Positioned on the right */
-            width: 9%; /* Now at 9% width */
+            right: 5px;
+            width: 9%;
             padding: 10px;
-            background-color: rgba(0, 0, 0, 0.8); /* Dark hacker background */
+            background-color: rgba(0, 0, 0, 0.8);
             border: 1px solid #00ff00;
             border-radius: 5px;
             text-align: center;
@@ -129,10 +129,10 @@
 </head>
 <body>
 
-<!-- Hacking-style animated text -->
+
 <p class="hint-text" id="typing-text"></p>
 
-<!-- Right-side input box for launch code -->
+
 <div class="flag-content">
     <h2>Enter Launch Code</h2>
     <div class="input-container">
@@ -146,20 +146,23 @@
 <script>
     function submitFlag1Code() {
         let inputCode = document.getElementById("flag1-input").value;
-        let correctCode = "1667538176341";
+        
+        
+        let encodedCorrectCode = "MTY2NzUzODE3NjM0MQ=="; 
+
+        let correctCode = atob(encodedCorrectCode); 
+
         let errorMessage = document.getElementById("error-message");
 
-        // Check if the entered code matches the correct one
+        
         if (inputCode === correctCode) {
             alert("Correct! You've found the launch code.");
-            // You can add further actions here (e.g., redirect to the next flag)
         } else {
-            // Show an error message if the code is incorrect
             errorMessage.style.display = "block";
         }
     }
 
-    // Typing effect function
+    
     function typeText(element, text, speed) {
         let i = 0;
         function typing() {
@@ -172,11 +175,11 @@
         typing();
     }
 
-    // Start typing animation
+    
     document.addEventListener("DOMContentLoaded", function() {
         let hintText = document.getElementById("typing-text");
         let text = "Looks like the place is trashed.\nI know they hid the first launch code around here somewhere.\nI should inspect my surroundings—maybe there will be something out of place.";
-        typeText(hintText, text, 50); // Adjust speed as needed
+        typeText(hintText, text, 50);
     });
 </script>
 
