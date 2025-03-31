@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        @font-face {
+            font-family: 'HackerFont';
+            src: url('fonts/AnonymousPro-Regular.ttf');
+        }
+
+        body {
+            font-family: 'HackerFont', monospace;
+            background-color: black;
+            color: #00ff00;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.9);
+            border: 1px solid #00ff00;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            border-radius: 5px;
+            z-index: 2;
+        }
+
+        .input-container {
+            margin-top: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 8px;
+            width: 200px;
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            background-color: black;
+            color: #00ff00;
+            text-align: center;
+            font-family: 'HackerFont', monospace;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .submit-btn {
+            margin-top: 10px;
+            padding: 8px;
+            width: 100%;
+            background-color: #00ff00;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-family: 'HackerFont', monospace;
+            text-transform: uppercase;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .submit-btn:hover {
+            background-color: black;
+            color: #00ff00;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* Hidden Flag (Initially Blurred) */
+        .hidden-flag {
+            margin-top: 20px;
+            font-size: 20px;
+            text-align: center;
+            filter: blur(10px);
+            opacity: 0.5;
+            transition: all 1s ease-in-out;
+            z-index: 2;
+        }
+
+        .reveal {
+            filter: blur(0);
+            opacity: 1;
+        }
+
+        /* Matrix Effect Overlay */
+        .matrix-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 3;
+            display: none;
+            overflow: hidden;
+        }
+
+        .matrix-text {
+            font-family: 'HackerFont', monospace;
+            color: #00ff00;
+            font-size: 24px;
+            position: absolute;
+            opacity: 0;
+            animation: fall 1.5s linear forwards;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Form -->
+    <div class="login-container" id="login-container">
+        <h2>Admin Login</h2>
+        <div class="input-container">
+            <label for="username">Username:</label>
+            <input type="text" id="username" value="Admin" readonly>
+        </div>
+        <div class="input-container">
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter password">
+        </div>
+        <button class="submit-btn" onclick="checkLogin()">Login</button>
+        <p class="error-message" id="error-message">Incorrect password. Try again.</p>
+    </div>
+
+    <!-- Hidden Flag -->
+    <p class="hidden-flag" id="flag-text">RmxhZyAzIC0gMTI5ODc2MzI3</p>
+
+    <!-- Matrix Effect Overlay -->
+    <div class="matrix-overlay" id="matrix-overlay"></div>
+
+    <script>
+        function checkLogin() {
+            let passwordInput = document.getElementById("password").value;
+            let correctPassword = "1234qwert";
+            let errorMessage = document.getElementById("error-message");
+            let flagText = document.getElementById("flag-text");
+            let matrixOverlay = document.getElementById("matrix-overlay");
+            let loginContainer = document.getElementById("login-container");
+
+            if (passwordInput === correctPassword) {
+                // Hide the login container
+                loginContainer.style.display = "none";
+
+                // Show the matrix effect
+                matrixOverlay.style.display = "block";
+
+                // Generate falling 0s and 1s
+                for (let i = 0; i < 100; i++) {
+                    let matrixText = document.createElement("div");
+                    matrixText.classList.add("matrix-text");
+                    matrixText.innerText = Math.random() > 0.5 ? "0" : "1";
+                    matrixText.style.left = Math.random() * 100 + "vw";
+                    matrixText.style.animationDelay = Math.random() * 2 + "s";
+                    matrixOverlay.appendChild(matrixText);
+                }
+
+                // After animation, reveal the flag
+                setTimeout(() => {
+                    matrixOverlay.style.display = "none";
+                    flagText.classList.add("reveal");
+                }, 3000); // 3-second delay for effect
+            } else {
+                errorMessage.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
