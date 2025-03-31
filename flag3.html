@@ -7,7 +7,7 @@
     <style>
         @font-face {
             font-family: 'Thinker';
-            src: url('fonts/Thinker-Regular.ttf'); /* Make sure the font file exists */
+            src: url('fonts/Thinker-Regular.ttf'); /* Ensure font file exists */
         }
 
         body {
@@ -86,9 +86,70 @@
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
             opacity: 0.8;
             text-align: center;
-            white-space: pre-line; /* Ensures proper stacking */
+            white-space: pre-line;
             line-height: 1.3;
         }
+
+        /* Input Box & Submit Button */
+        .flag-content {
+            position: absolute;
+            top: 30%;
+            right: 5%;
+            width: 200px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #00ff00;
+            border-radius: 8px;
+            border: 1px solid #00ff00;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            text-align: center;
+        }
+
+        .flag-content h2 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 90%;
+            border-radius: 5px;
+            border: 1px solid #00ff00;
+            font-family: 'HackerFont', monospace;
+            color: #00ff00;
+            background-color: black;
+            text-align: center;
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .submit-btn {
+            padding: 8px;
+            width: 100%;
+            background-color: #00ff00;
+            color: black;
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-family: 'HackerFont', monospace;
+            text-transform: uppercase;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .submit-btn:hover {
+            background-color: black;
+            color: #00ff00;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 8px;
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -113,6 +174,35 @@
     corporate says I need<br> 
     5 numbers in my password, they are so annoying
 </div>
+
+<!-- Flag Input Field -->
+<div class="flag-content">
+    <h2>Enter Launch Code</h2>
+    <input type="text" id="flag3-input" placeholder="Enter Code">
+    <button class="submit-btn" onclick="submitFlag3Code()">Submit</button>
+    <p class="error-message" id="error-message">Incorrect code. Try again.</p>
+</div>
+
+<script>
+    function decodeBase64(str) {
+        return atob(str);
+    }
+
+    function submitFlag3Code() {
+        let inputCode = document.getElementById("flag3-input").value;
+        let errorMessage = document.getElementById("error-message");
+
+        let encodedCorrectCode = "MTI5ODc2MzI3"; // Base64 of "129876327"
+        let correctCode = decodeBase64(encodedCorrectCode); 
+
+        if (inputCode === correctCode) {
+            alert("Correct! You found the launch code.");
+            window.location.href = "flag3_success.html"; // Redirect on success
+        } else {
+            errorMessage.style.display = 'block';
+        }
+    }
+</script>
 
 </body>
 </html>
