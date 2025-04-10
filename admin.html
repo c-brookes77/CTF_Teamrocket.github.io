@@ -80,7 +80,7 @@
             display: none;
         }
 
-        /* Hidden Flag (Initially Blurred) */
+  
         .hidden-flag {
             margin-top: 20px;
             font-size: 20px;
@@ -96,7 +96,7 @@
             opacity: 1;
         }
 
-        /* Matrix Effect Overlay */
+  
         .matrix-overlay {
             position: absolute;
             top: 0;
@@ -135,7 +135,7 @@
 </head>
 <body>
 
-    <!-- Login Form -->
+
     <div class="login-container" id="login-container">
         <h2>Admin Login</h2>
         <div class="input-container">
@@ -150,16 +150,16 @@
         <p class="error-message" id="error-message">Incorrect password. Try again.</p>
     </div>
 
-    <!-- Hidden Flag -->
+ 
     <p class="hidden-flag" id="flag-text">TGF1bmNoIENvZGUgMyAtIDEyOTg3NjMyNw==</p>
 
-    <!-- Matrix Effect Overlay -->
+  
     <div class="matrix-overlay" id="matrix-overlay"></div>
 
     <script>
         function checkLogin() {
             let passwordInput = document.getElementById("password").value;
-            let encodedCorrectPassword = "MTIzNHF3ZXJ0"; // Base64 for "1234qwert"
+            let encodedCorrectPassword = "cXdlcnR5MTIzNDU="; 
             let correctPassword = atob(encodedCorrectPassword); 
             let errorMessage = document.getElementById("error-message");
             let flagText = document.getElementById("flag-text");
@@ -167,13 +167,13 @@
             let loginContainer = document.getElementById("login-container");
 
             if (passwordInput === correctPassword) {
-                // Hide the login container
+        
                 loginContainer.style.display = "none";
 
-                // Show the matrix effect
+            
                 matrixOverlay.style.display = "block";
 
-                // Generate falling 0s and 1s
+       
                 for (let i = 0; i < 100; i++) {
                     let matrixText = document.createElement("div");
                     matrixText.classList.add("matrix-text");
@@ -183,11 +183,11 @@
                     matrixOverlay.appendChild(matrixText);
                 }
 
-                // After animation, reveal the flag
+     
                 setTimeout(() => {
                     matrixOverlay.style.display = "none";
                     flagText.classList.add("reveal");
-                }, 3000); // 3-second delay for effect
+                }, 3000);
             } else {
                 errorMessage.style.display = "block";
             }
