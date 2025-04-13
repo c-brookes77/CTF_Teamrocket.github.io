@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Rocket CTF</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet"> <!-- Orbitron Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* Ensures the body takes up full height and centers content */
         body {
-            font-family: 'Orbitron', sans-serif; /* Use Orbitron font */
+            font-family: 'Orbitron', sans-serif;
             margin: 0;
             padding: 0;
             background: url('images/Space.jpg') no-repeat center center fixed;
@@ -21,13 +20,13 @@
         header {
             color: white;
             text-align: center;
-            padding: 40px 20px 80px; /* Move text further up by increasing bottom padding */
+            padding: 40px 20px 80px;
             width: 100%;
         }
 
         header h1 {
             margin: 0;
-            font-size: 4rem; /* Larger text size for the header */
+            font-size: 4rem;
         }
 
         header p {
@@ -36,13 +35,12 @@
             color: #ddd;
         }
 
-        /* Spaceship image styling */
         .spaceship {
-            position: fixed; /* Stays in place when scrolling */
-            left: 100px; /* Moved further right */
-            top: 50%; /* Centers vertically */
-            transform: translateY(-50%) rotate(25deg); /* Increased rotation */
-            width: 150px; /* Adjust size */
+            position: fixed;
+            left: 100px;
+            top: 50%;
+            transform: translateY(-50%) rotate(25deg);
+            width: 150px;
             height: auto;
         }
 
@@ -54,7 +52,7 @@
         }
 
         section {
-            background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
@@ -110,10 +108,8 @@
     <p>Find all the launch codes</p>
 </header>
 
-<!-- Spaceship Image (Moved Further Right) -->
 <img src="images/rocketship2.png" alt="Spaceship" class="spaceship">
 
-<!-- Flags Container -->
 <div class="flags-container">
     <section>
         <h2>Flag One</h2>
@@ -148,6 +144,13 @@
             <div class="inner-flag">
                 <a href="flag3_2.html" class="flag-link">Flag 3 - Option 2</a>
             </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Root Flag</h2>
+        <div class="inner-flag">
+            <a href="root_flag.html" class="flag-link">Access Root Flag</a>
         </div>
     </section>
 </div>
