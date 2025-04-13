@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Root User Login</title>
+    <style>
+        body { 
+            margin: 0;
+            padding: 0;
+            font-family: monospace;
+            background-color: black;
+            color: #00ff00;
+            text-align: center;
+            position: relative;
+            height: 100vh;
+        }
+
+       
+        .rootpic {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+       
+        .input-box, .btn {
+            display: block;
+            width: 300px;
+            margin: 10px auto;
+            padding: 10px;
+            background: black;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+        }
+
+        .btn { 
+            cursor: pointer; 
+            text-align: center;
+        }
+
+        .note {
+            font-style: italic;
+            color: #aaffaa;
+        }
+
+        
+        .login-box {
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            width: 300px;
+            padding: 20px;
+            border: 2px solid #00ff00;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+        }
+
+       
+        .paper {
+            position: absolute;
+            bottom: 10%;
+            right: 5%;
+            width: 25%;
+            background-image: url('images/paper.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 10px;
+            color: #000;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        .paper-content {
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            text-align: left;
+        }
+        
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+   
+    <img src="images/rootpic1.jpg" alt="Root Image" class="rootpic">
+
+    
+    <div class="login-box">
+        <h2>Admin Login</h2>
+        <label>Email:</label>
+        <input class="input-box" type="text" id="email" placeholder="Enter email">
+        <label>Password:</label>
+        <input class="input-box" type="text" id="password" placeholder="Enter password">
+        <input class="btn" type="button" value="Login" onclick="checkLogin()">
+        <p class="note" id="login-msg"></p>
+        <p class="error-message" id="error-msg" style="display: none;">Incorrect Password, did you forget to solve the cipher?.</p> 
+    </div>
+
+    <script>
+        function checkLogin() {
+            const emailBase64 = "dGVhbXJvY2tldGN0ZnJvb3RAZ21haWwuY29t";
+            const passBase64 = "VGVlTV89Um9rZVRfMzc=";
+            const email = atob(emailBase64);  
+            const pass = atob(passBase64);   
+
+            const enteredEmail = document.getElementById("email").value.trim();
+            const enteredPass = document.getElementById("password").value.trim();
+
+           
+            if (enteredEmail === email && enteredPass === pass) {
+                window.location.href = "root_user.html"; 
+            } else {
+                if (enteredPass === "WhhPC_=UrnhW^37") {
+                  
+                    document.getElementById("error-msg").style.display = "block";
+                    document.getElementById("login-msg").innerText = "";
+                } else {
+                    document.getElementById("login-msg").innerText = "Incorrect email or password.";
+                    document.getElementById("error-msg").style.display = "none";
+                }
+            }
+        }
+    </script>
+
+    
+    <div class="paper">
+        <div class="paper-content">
+            <p><strong>Password:</strong> WhhPC_=UrnhW^37</p>
+            <p><strong>Hint: </strong>The admin always liked caesar salads, he would always order them at 3 on weekdays...</p>
+        </div>
+    </div>
+
+</body>
+</html>

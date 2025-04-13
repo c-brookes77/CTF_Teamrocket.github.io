@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Launch Room</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: monospace;
+      background: black;
+      color: black;
+      text-align: center;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .background-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Launch button styling */
+    .launch-button {
+      width: 150px;
+      height: 150px;
+      background-color: red;
+      color: white;
+      font-size: 24px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+      transition: all 0.3s ease;
+      position: absolute;
+      top: 50%; /* Vertically center the button */
+      left: 50%; /* Horizontally center the button */
+      transform: translate(-50%, -50%); /* Adjust to exact center */
+      z-index: 1; /* Ensures button stays on top */
+    }
+
+    /* Button glow and press effect */
+    .launch-button:active {
+      transform: scale(0.95);  /* Simulates a press */
+      box-shadow: 0 0 30px rgba(255, 0, 0, 1);  /* Brighter glow on press */
+    }
+
+    .launch-button:hover {
+      box-shadow: 0 0 40px rgba(255, 0, 0, 0.7);  /* Hover effect to make it glow */
+    }
+
+    .launch-button:focus {
+      outline: none;
+    }
+
+    .launch-button-text {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    /* Video container */
+    .video-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0; /* Makes sure the video is behind the button */
+      display: none; /* Initially hidden */
+    }
+
+    video {
+      width: 80vw;  /* Adjust the video size */
+      height: 80vh;  /* Adjust the video size */
+      border-radius: 10px;  /* Optional: Adds rounded corners to the video */
+      object-fit: cover;  /* Ensures the video scales without distortion */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Full-screen background image -->
+  <img src="images/launch_room.jpg" alt="Launch Room" class="background-image">
+
+  <!-- Launch button -->
+  <button class="launch-button" onclick="startLaunch()">
+    <div class="launch-button-text">Launch</div>
+  </button>
+
+  <!-- Video Container -->
+  <div class="video-container" id="video-container">
+    <video id="rocket-video" controls>
+      <source src="videos/rocket_launch.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <script>
+    function startLaunch() {
+      // Hide the button when the launch begins
+      document.querySelector(".launch-button").style.display = "none";
+
+      // Show the video container and play the video
+      const videoContainer = document.getElementById("video-container");
+      videoContainer.style.display = "block";
+      const video = document.getElementById("rocket-video");
+
+      // Play the video explicitly
+      video.play();
+
+      // If the video ends, you can redirect to a new page or show something else
+      video.onended = function() {
+        alert("Rocket has launched!");
+        window.location.href = "launch_bay.html"; // Redirect after the video ends
+      }
+    }
+  </script>
+
+</body>
+</html>
